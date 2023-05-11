@@ -512,13 +512,14 @@ class ConditionalGAN(GAN):
     '''Conditional generative adversarial network'''
     
     def __init__(self, 
-                 n_latent_dims=128, 
+                 ## These values should be passed in as kwargs to the GAN
+                 #n_latent_dims=128, 
                  n_classes=10,
-                 image_shape=(32, 32, 1),
+                 #image_shape=(32, 32, 1),
                  cond_loss_weight=1.,
-                 generator_lr=0.0001,
-                 discriminator_lr=0.00001,
-                 name='gan', 
+                 #generator_lr=0.0001,
+                 #discriminator_lr=0.00001,
+                 name='cgan', 
                  **kwargs):
         """Generative adversarial network containing a generator to synthesize 
         images and an adversary to to discriminate between real and fake images.

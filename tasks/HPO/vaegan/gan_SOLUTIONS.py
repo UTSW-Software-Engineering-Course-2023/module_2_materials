@@ -536,40 +536,25 @@ class ConditionalGAN(GAN):
     '''Conditional generative adversarial network'''
     
     def __init__(self, 
-                 n_latent_dims=128, 
                  n_classes=10,
-                 image_shape=(32, 32, 1),
                  cond_loss_weight=1.,
                  generator_params = {},
                  discriminator_params = {},
-                 generator_lr=0.0001,
-                 discriminator_lr=0.00001,
-                 name='gan', 
+                 name='cgan', 
                  **kwargs):
         """Generative adversarial network containing a generator to synthesize 
         images and an adversary to to discriminate between real and fake images.
 
         Args:
-            n_latent_dims (int, optional): Size of latent representation.
-                Defaults to 8. 
             n_classes (int, optional): Number of classes. Defaults to 10. 
-            image_shape (tuple, optional): Image shape. Defaults
-                to (32, 32, 1). 
             cond_loss_weight (float, optional): Weight of conditional loss for 
                 generator. Defaults to 1.
-            generator_lr (float, optional): Adam learning rate for generator. 
-                Defaults to 0.0001.
-            discriminator_lr (float, optional): Adam learning rate for discriminator. 
-                Defaults to 0.00001.
-            name (str, optional): Model name. Defaults to 'gan'.
+            name (str, optional): Model name. Defaults to 'cgan'.
         """        
         
         # ToImplement Exercise6a_part1 ==
         # ===============================
-        super().__init__(name=name,
-                         n_latent_dims=n_latent_dims,
-                         image_shape=image_shape,
-                         generator_params=generator_params, **kwargs)
+        super().__init__(name=name, generator_params=generator_params, **kwargs)
 
         self.n_classes = n_classes
         self.cond_loss_weight = cond_loss_weight
